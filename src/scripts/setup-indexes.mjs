@@ -41,9 +41,13 @@ try {
         { unique: true }
     );
 
-    // Efficiently find tokens belonging to a user
+    // Enforce a maximum of one verification token per user
     await verificationTokens.createIndex(
-        { userId: 1 }
+        { userId: 1 },
+        {
+            unique: true,
+            name: "email_verification_user_unique"
+        }
     );
 
     // Automatically remove expired token records

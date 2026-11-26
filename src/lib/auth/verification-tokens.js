@@ -15,10 +15,6 @@ export function hashVerificationToken(token) {
 
 // calculate when the verification link expires
 export function getVerificationExpiration() {
-    const expiration = new Date();
-
-    expiration.setHours(expiration.getHours() + 24);
-
-    return expiration
+    return new Date(Date.now() + 24 * 60 * 60 * 1000)
 
 }
