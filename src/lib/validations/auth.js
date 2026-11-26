@@ -11,3 +11,7 @@ export const registrationSchema = userSchema
            .max(128, "Password must not exceed 128 characters")
     });
     
+
+export const resendVerificationSchema = userSchema.pick({
+    email: true
+});

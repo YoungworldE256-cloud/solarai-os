@@ -6,10 +6,11 @@ export const userSchema = z.object({
        .min(2, "Name must have at least two characters")
        .max(100),
 
-    email: z.email()
-        .trim()
-        .toLowerCase()
-        .pipe(z.email("Enter a valid email address")),
+    email: z.string()
+       .trim()
+       .toLowerCase()
+       .max(254, "Email address is too long")
+       .pipe(z.email("Enter a valid email address")),
 
     phone: z.string()
         .trim()
